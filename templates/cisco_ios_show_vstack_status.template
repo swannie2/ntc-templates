@@ -1,0 +1,13 @@
+Value DEVNO (\S+)
+Value MACADDR (\S+)
+Value PRODUCTID (\S+)
+Value IPADDR (\S+)
+Value HOSTNAME (\S+)
+Value STATUS (.*)
+
+Start
+  ^=====  ============== -> Begin
+
+Begin
+  ^${DEVNO}\s+${MACADDR}\s+${PRODUCTID}\s+${IPADDR}\s+${HOSTNAME}\s+${STATUS}$$ -> Record
+  
