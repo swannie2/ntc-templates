@@ -1,0 +1,23 @@
+Value Required,Filldown PORTCHAN (Po\d+)
+Value Filldown PO_STATUS (\(\w+\))
+Value Filldown PROTOCOL ((\w+|-))
+Value List PORT ([A-Z][A-Za-z]+\s?([0-9]+/){0,}[0-9]+)
+Value List PORT_STATUS (.+?)
+
+Start
+  ^------ -> Begin
+
+Begin
+  ^\d+ -> Continue.Record
+  ^\d+\s+${PORTCHAN}${PO_STATUS}\s+${PROTOCOL}\s+$$ -> Continue
+  ^\d+\s+${PORTCHAN}${PO_STATUS}\s+${PROTOCOL}\s+${PORT}\(${PORT_STATUS}\)(\s|$$) -> Continue
+  ^\d+\s+Po\d+\(\w+\)\s+(\w+|-)\s+[A-Z][A-Za-z]+\s?([0-9]+/){0,}[0-9]+\(\w+\)\s+${PORT}\(${PORT_STATUS}\)(\s|$$) -> Continue
+  ^\d+\s+Po\d+\(\w+\)\s+(\w+|-)\s+[A-Z][A-Za-z]+\s?([0-9]+/){0,}[0-9]+\(\w+\)\s+[A-Z][A-Za-z]+\s?([0-9]+/){0,}[0-9]+\(\w+\)\s+${PORT}\(${PORT_STATUS}\)(\s|$$) -> Continue
+  ^\s{33}${PORT}\(${PORT_STATUS}\)(\s|$$) -> Continue
+  ^\s{33}[A-Z][A-Za-z]+\s?([0-9]+/){0,}[0-9]+\(\w+\)\s+${PORT}\(${PORT_STATUS}\)(\s|$$) -> Continue
+  ^\s{33}[A-Z][A-Za-z]+\s?([0-9]+/){0,}[0-9]+\(\w+\)\s+[A-Z][A-Za-z]+\s?([0-9]+/){0,}[0-9]+\(\w+\)\s+${PORT}\(${PORT_STATUS}\)(\s|$$) -> Continue
+  
+  
+  
+  
+  
