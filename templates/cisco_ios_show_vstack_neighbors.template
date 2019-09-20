@@ -1,0 +1,12 @@
+Value MACADDR (\S+)
+Value HOSTNAME (\S+)
+Value IPADDR (\S+)
+Value LOCALINT (\S+\s\S+)
+Value REMOTEINT (\S+\s\S+)
+
+Start
+  ^==============  =============== -> Begin
+
+Begin
+  ^${MACADDR}\s+${HOSTNAME}\s+${IPADDR}\s+${LOCALINT}\s+${REMOTEINT}$$ -> Record
+  
