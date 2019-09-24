@@ -1,0 +1,15 @@
+Value AP_NAME (\S+)
+Value IP ([a-fA-F0-9:\.]+)
+Value NEIGHBOR (\S+)
+Value NEIGHBOR_PORT (\S+)
+Value NEIGHBOR_IP ([a-fA-F0-9:\.]+)
+
+Start
+  ^.*--- -> Begin
+  
+Begin
+  ^${AP_NAME}\s+${IP}\s+${NEIGHBOR}\s+${NEIGHBOR_PORT}\s*$$ 
+  ^\s+IP address:\s+${NEIGHBOR_IP}\s*$$ -> Record
+
+
+  
