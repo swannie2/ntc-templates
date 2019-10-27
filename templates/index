@@ -241,6 +241,7 @@ cisco_wlc_ssh_show_cdp_neighbors_detail.template, .*, cisco_wlc_ssh, sh[[ow]] c[
 cisco_wlc_ssh_show_ap_cdp_neighbors_all.template, .*, cisco_wlc_ssh, sh[[ow]] ap c[[dp]] neig[[hbors]] all
 cisco_wlc_ssh_show_ap_config_general.template, .*, cisco_wlc_ssh, sh[[ow]] ap con[[fig]] ge[[neral]]
 cisco_wlc_ssh_show_ap_summary.template, .*, cisco_wlc_ssh, sh[[ow]] ap sum[[mary]]
+cisco_wlc_ssh_show_ap_inventory.template, .*, cisco_wlc_ssh, sh[[ow]] ap inv[[entory]] all
 cisco_wlc_ssh_show_sysinfo.template, .*, cisco_wlc_ssh, sh[[ow]] sysi[[nfo]]
 
 cisco_xr_show_controllers_fabric_fia_errors_ingress_location.template, .*, cisco_xr, sh[[ow]] contr[[ollers]] fabric fi[[a]] err[[ors]] in[[gress]] loc[[ation]]

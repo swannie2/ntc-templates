@@ -1,0 +1,26 @@
+Value AP_NAME (.*)
+Value NAME ([\w+\d+]+)
+Value DESCR (.*)
+Value PID (([\S+]+|.*))
+Value VID (.*)
+Value SN ([\w+\d+]+)
+Value MODULE_NAME ([\w+\d+\s*]+)
+Value MODULE_DESCR (.*)
+Value MODULE_PID (([\S+]+|.*))
+Value MODULE_SN ([\w+\d+]+)
+Value MODULE_MAXPWR (.*)
+Value MODULE_VID ([\w+\d+]+)
+Value MODULE_CAP (.*)
+
+Start
+  ^\s*$$ -> Start_Records
+
+Start_Records
+  ^Inventory for .* -> Continue.Record
+  ^Inventory for\s+${AP_NAME}
+  ^NAME:\s+"${NAME}"\s+,\s+DESCR:\s+"${DESCR}"
+  ^PID:\s+${PID}.*,.*VID:\s+${VID},.*SN:\s+${SN}
+  ^MODULE NAME:\s+"${MODULE_NAME}"\s*,\s*DESCR:\s+"${MODULE_DESCR}"
+  ^PID:\s+${MODULE_PID}\s*,\s*SN:\s+${MODULE_SN}\s*,\s*MaxPower:\s+${MODULE_MAXPWR}
+  ^VersionID:\s+${MODULE_VID}\s*,\s*Capabilites:\s*${MODULE_CAP}
+  
