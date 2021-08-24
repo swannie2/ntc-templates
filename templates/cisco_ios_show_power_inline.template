@@ -1,0 +1,13 @@
+Value PORT (\S+)
+Value ADMIN (\S+)
+Value OPER (\S+)
+Value POWER (\S+)
+Value DEVICE (.{20})
+Value CLASS (\S+)
+Value MAX (\S+)
+
+Start
+  ^.*---- -> Begin
+
+Begin
+  ^${PORT}\s+${ADMIN}\s+${OPER}\s+${POWER}\s+${DEVICE}${CLASS}\s+${MAX}.*$$ -> Record
